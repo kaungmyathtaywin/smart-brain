@@ -7,11 +7,11 @@ const Navigation = () => {
     <nav>
       <ul className="flex">
         <li>
-          <div className="flex justify-center items-center logo-box br2 shadow-2 ma2">
+          <div className="flex justify-center items-center ma2 br2 shadow-2 logo-box">
             <img src={brain} alt="logo" className="logo" />
           </div>
         </li>
-        <li className="flex f4 link dim black pa2 pointer mr3 sign-out br2">
+        <li className="flex f4 pa2 mr3 br2 pointer link dim black sign-out">
           {"Sign Out"}
         </li>
       </ul>
