@@ -5,7 +5,7 @@ const Register = ({ onRouteChange }) => {
     <div className="register w-100">
       <article className="center mv4 w-100 w-50-m w-25-l">
         <main className="pa4 br3 bg-near-white shadow-2 register-card">
-          <form className="measure">
+          <div className="measure">
             <fieldset id="sign-up" className="ba b--transparent ph0 mh0">
               <legend className="f3 fw5 ph0 mh0">Register</legend>
               <div className="mt3">
@@ -47,10 +47,10 @@ const Register = ({ onRouteChange }) => {
                 className="ph3 pv2 input-reset ba b--black br2 grow pointer f6"
                 type="submit"
                 value="Register"
-                onClick={() => onRouteChange("register")}
+                onClick={() => onRouteChange("home")}
               />
             </div>
-          </form>
+          </div>
         </main>
       </article>
     </div>
