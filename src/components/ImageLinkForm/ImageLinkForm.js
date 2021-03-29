@@ -8,7 +8,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
         {"This Magic Brain will detect faces in your pictures. Give it a try! "}
       </p>
       <div className="flex justify-center">
-        <div className="form pa2 br3 bg-light-silver">
+        <div className="input-form pa2 br3 bg-light-silver">
           <input
             className="f4 pa1 w-70"
             type="text"
@@ -16,7 +16,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
             onChange={onInputChange}
           />
           <button
-            className="f4 link ph3 pv1 bg-light-green w-30"
+            className="f4 ph3 pv1 bg-light-green w-30 detect-button"
             onClick={onButtonSubmit}
           >
             {"Detect"}
