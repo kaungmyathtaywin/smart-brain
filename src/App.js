@@ -6,6 +6,7 @@ import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
 import Signin from "./components/Signin/Signin";
+import Register from "./components/Register/Register";
 import Clarifai from "clarifai";
 
 const particlesOptions = {
@@ -67,14 +68,16 @@ class App extends React.Component {
       .catch((error) => console.log(error));
   };
 
+  onRouteChange = (route) => {
+    this.setState({ route: route });
+  };
+
   render() {
     return (
       <div className="main">
         <Particles className="particles" params={particlesOptions} />
-        <Navigation />
-        {this.state.route === "signin" ? (
-          <Signin />
-        ) : (
+        <Navigation onRouteChange={this.onRouteChange} />
+        {this.state.route === "home" ? (
           <div>
             <Rank />
             <ImageLinkForm
@@ -86,6 +89,10 @@ class App extends React.Component {
               box={this.state.box}
             />
           </div>
+        ) : this.state.route === "signin" ? (
+          <Signin onRouteChange={this.onRouteChange} />
+        ) : (
+          <Register onRouteChange={this.onRouteChange} />
         )}
       </div>
     );

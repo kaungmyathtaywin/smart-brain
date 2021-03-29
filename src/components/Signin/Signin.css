@@ -1,11 +1,13 @@
-.signin {
+.signin,
+.register {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.signin-card {
+.signin-card,
+.register-card {
   width: 350px;
 }
 

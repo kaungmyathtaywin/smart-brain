@@ -1,15 +1,25 @@
 import React from "react";
-import "./Signin.css";
 
-const Signin = ({ onRouteChange }) => {
+const Register = ({ onRouteChange }) => {
   return (
-    <div className="signin w-100">
+    <div className="register w-100">
       <article className="center mv4 w-100 w-50-m w-25-l">
-        <main className="pa4 br3 bg-near-white shadow-2 signin-card">
+        <main className="pa4 br3 bg-near-white shadow-2 register-card">
           <form className="measure">
             <fieldset id="sign-up" className="ba b--transparent ph0 mh0">
-              <legend className="f3 fw5 ph0 mh0">Sign In</legend>
+              <legend className="f3 fw5 ph0 mh0">Register</legend>
               <div className="mt3">
+                <label className="db fw5 lh-copy f6" htmlFor="email-address">
+                  Name
+                </label>
+                <input
+                  className="pa2 mt2 ba br2 w-100"
+                  type="text"
+                  name="name"
+                  id="name"
+                />
+              </div>
+              <div className="mv3">
                 <label className="db fw5 lh-copy f6" htmlFor="email-address">
                   Email
                 </label>
@@ -36,17 +46,9 @@ const Signin = ({ onRouteChange }) => {
               <input
                 className="ph3 pv2 input-reset ba b--black br2 grow pointer f6"
                 type="submit"
-                value="Log in"
-                onClick={() => onRouteChange("home")}
+                value="Register"
+                onClick={() => onRouteChange("register")}
               />
-              <div className="lh-copy mt2 sign-up">
-                <p
-                  className="f5 link dim black db mv0"
-                  onClick={() => onRouteChange("register")}
-                >
-                  Register
-                </p>
-              </div>
             </div>
           </form>
         </main>
@@ -55,4 +57,4 @@ const Signin = ({ onRouteChange }) => {
   );
 };
 
-export default Signin;
+export default Register;

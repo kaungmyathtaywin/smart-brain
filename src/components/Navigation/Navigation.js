@@ -2,7 +2,7 @@ import React from "react";
 import brain from "./brain.png";
 import "./Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({ onRouteChange }) => {
   return (
     <nav>
       <ul className="flex">
@@ -11,7 +11,10 @@ const Navigation = () => {
             <img src={brain} alt="logo" className="logo" />
           </div>
         </li>
-        <li className="flex f4 pa2 mr3 br2 pointer link dim black sign-out">
+        <li
+          className="flex f4 pa2 mr3 br2 pointer link dim black sign-out"
+          onClick={() => onRouteChange("signin")}
+        >
           {"Sign Out"}
         </li>
       </ul>
