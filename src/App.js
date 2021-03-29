@@ -30,7 +30,7 @@ class App extends React.Component {
       input: "",
       imageUrl: "",
       box: {},
-      route: "signin",
+      route: "signout",
       isSignedIn: false,
     };
   }
@@ -61,8 +61,9 @@ class App extends React.Component {
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
+    const FACE_DETECTION_MODEL = "d02b4508df58432fbb84e800597b8959";
     app.models
-      .predict("d02b4508df58432fbb84e800597b8959", this.state.input)
+      .predict(FACE_DETECTION_MODEL, this.state.input)
       .then((response) =>
         this.displayFaceBox(this.calculateFaceLocation(response))
       )
@@ -70,7 +71,7 @@ class App extends React.Component {
   };
 
   onRouteChange = (route) => {
-    if (route === "signin" || route === "register") {
+    if (route === "signout") {
       this.setState({ isSignedIn: false });
     } else if (route === "home") {
       this.setState({ isSignedIn: true });
@@ -96,7 +97,7 @@ class App extends React.Component {
             />
             <FaceRecognition imageUrl={imageUrl} box={box} />
           </div>
-        ) : route === "signin" ? (
+        ) : route === "signout" ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (
           <Register onRouteChange={this.onRouteChange} />

@@ -9,7 +9,12 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
       </p>
       <div className="flex justify-center">
         <div className="form pa2 br3 bg-light-silver">
-          <input className="f4 pa1 w-70" type="text" onChange={onInputChange} />
+          <input
+            className="f4 pa1 w-70"
+            type="text"
+            placeholder="Please enter an image address"
+            onChange={onInputChange}
+          />
           <button
             className="f4 link ph3 pv1 bg-light-green w-30"
             onClick={onButtonSubmit}

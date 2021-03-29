@@ -12,12 +12,14 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
               <img src={brain} alt="logo" className="logo" />
             </div>
           </li>
-          <li
-            className="flex f4 pa2 mr3 br2 pointer link dim black sign-out"
-            onClick={() => onRouteChange("signin")}
-          >
-            {"Sign Out"}
-          </li>
+          <div className="links flex items-center">
+            <li
+              className="dib f4 pa2 mr3 br2 pointer link dim each-link"
+              onClick={() => onRouteChange("signout")}
+            >
+              {"Sign Out"}
+            </li>
+          </div>
         </ul>
       </nav>
     );
@@ -30,6 +32,20 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
               <img src={brain} alt="logo" className="logo" />
             </div>
           </li>
+          <div className="links flex items-center">
+            <li
+              className="dib f4 pa2 mr3 br2 pointer link dim each-link"
+              onClick={() => onRouteChange("register")}
+            >
+              {"Register"}
+            </li>
+            <li
+              className="dib f4 pa2 mr3 br2 pointer link dim each-link"
+              onClick={() => onRouteChange("signout")}
+            >
+              {"Sign in"}
+            </li>
+          </div>
         </ul>
       </nav>
     );
