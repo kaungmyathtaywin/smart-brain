@@ -32,13 +32,14 @@ class App extends React.Component {
       box: {},
       route: "signout",
       isSignedIn: false,
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        entries: 0,
+        joined: "",
+      },
     };
-  }
-
-  componentDidMount() {
-    fetch("http://localhost:3000")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
   }
 
   calculateFaceLocation = (data) => {
@@ -54,6 +55,18 @@ class App extends React.Component {
       rightCol: width - clarifaiFace.right_col * width,
       bottomRow: height - clarifaiFace.bottom_row * height,
     };
+  };
+
+  loaduser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        entries: data.entries,
+        joined: data.joined,
+      },
+    });
   };
 
   displayFaceBox = (box) => {
@@ -106,7 +119,10 @@ class App extends React.Component {
         ) : route === "signout" ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register
+            onRouteChange={this.onRouteChange}
+            loaduser={this.loaduser}
+          />
         )}
       </div>
     );
