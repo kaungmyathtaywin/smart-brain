@@ -77,15 +77,28 @@ class App extends React.Component {
     this.setState({ input: event.target.value });
   };
 
-  onButtonSubmit = () => {
+  onImageButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
 
     const FACE_DETECTION_MODEL = "d02b4508df58432fbb84e800597b8959";
     app.models
       .predict(FACE_DETECTION_MODEL, this.state.input)
-      .then((response) =>
-        this.displayFaceBox(this.calculateFaceLocation(response))
-      )
+      .then((response) => {
+        if (response) {
+          fetch("http://localhost:3000/image", {
+            method: "put",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              id: this.state.user.id,
+            }),
+          })
+            .then((response) => response.json())
+            .then((count) => {
+              this.setState(Object.assign(this.state.user, { entries: count }));
+            });
+          this.displayFaceBox(this.calculateFaceLocation(response));
+        }
+      })
       .catch((error) => console.log(error));
   };
 
@@ -109,15 +122,18 @@ class App extends React.Component {
         />
         {route === "home" ? (
           <div>
-            <Rank />
+            <Rank
+              name={this.state.user.name}
+              entries={this.state.user.entries}
+            />
             <ImageLinkForm
               onInputChange={this.onInputChange}
-              onButtonSubmit={this.onButtonSubmit}
+              onImageButtonSubmit={this.onImageButtonSubmit}
             />
             <FaceRecognition imageUrl={imageUrl} box={box} />
           </div>
         ) : route === "signout" ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin onRouteChange={this.onRouteChange} loaduser={this.loaduser} />
         ) : (
           <Register
             onRouteChange={this.onRouteChange}

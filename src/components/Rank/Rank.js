@@ -1,10 +1,10 @@
 import React from "react";
 
-const Rank = () => {
+const Rank = ({ name, entries }) => {
   return (
     <div className="flex justify-center f3 white">
-      <div>{"Hello John, your current rank is "}</div>
-      <div className="ml2">{"#5"}</div>
+      <div>{`Hello ${name}, your current entry count is`}</div>
+      <div className="ml2">{entries}</div>
     </div>
   );
 };

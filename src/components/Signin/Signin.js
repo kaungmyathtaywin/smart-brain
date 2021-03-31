@@ -29,11 +29,13 @@ class Signin extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        if (data === "success") {
+        if (data.id) {
+          console.log(data.id);
+          this.props.loaduser(data);
           this.props.onRouteChange("home");
         }
       })
-      .catch(console.log("Invaild username or password"));
+      .catch((error) => console.log(error));
   };
 
   render() {
