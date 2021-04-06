@@ -9,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Node
 - Express
 
-Specfic dependencies can be seen in package.json.
+Specific dependencies can be seen in package.json.
 
 ### License
 
