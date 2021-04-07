@@ -117,7 +117,10 @@ class App extends React.Component {
     const { imageUrl, box, route, isSignedIn } = this.state;
     return (
       <div className="main">
-        <Particles className="particles" params={particlesOptions} />
+        <Particles 
+          className="particles" 
+          params={particlesOptions} 
+        />
         <Navigation
           onRouteChange={this.onRouteChange}
           isSignedIn={isSignedIn}
@@ -132,10 +135,16 @@ class App extends React.Component {
               onInputChange={this.onInputChange}
               onImageButtonSubmit={this.onImageButtonSubmit}
             />
-            <FaceRecognition imageUrl={imageUrl} box={box} />
+            <FaceRecognition 
+              imageUrl={imageUrl} 
+              box={box} 
+            />
           </div>
         ) : route === "signout" ? (
-          <Signin onRouteChange={this.onRouteChange} loaduser={this.loaduser} />
+          <Signin 
+            onRouteChange={this.onRouteChange} 
+            loaduser={this.loaduser} 
+          />
         ) : (
           <Register
             onRouteChange={this.onRouteChange}
