@@ -2,7 +2,7 @@ import React from "react";
 import brain from "./brain.png";
 import "./Navigation.css";
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
+export default function Navigation({ onRouteChange, isSignedIn }) {
   if (isSignedIn) {
     return (
       <nav>
@@ -50,6 +50,4 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
       </nav>
     );
   }
-};
-
-export default Navigation;
+}

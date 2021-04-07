@@ -1,7 +1,7 @@
 import React from "react";
 import "./ImageLinkForm.css";
 
-const ImageLinkForm = ({ onInputChange, onImageButtonSubmit }) => {
+export default function ImageLinkForm({ onInputChange, onImageButtonSubmit }) {
   return (
     <div>
       <p className="f3 flex justify-center white">
@@ -25,6 +25,4 @@ const ImageLinkForm = ({ onInputChange, onImageButtonSubmit }) => {
       </div>
     </div>
   );
-};
-
-export default ImageLinkForm;
+}
